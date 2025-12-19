@@ -1,0 +1,253 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f4f5f7;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar a {
+  color: #9ca3af;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.login-box h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+
+.overlay-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  min-width: 260px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.progress-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-text {
+  font-weight: 600;
+}
+
+
+.day-chip-active {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.day-chip {
+  border: 1px solid #e5e7eb;
+  background-color: #adb4bc;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.day-chip-active {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.time-picker-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.time-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.time-chip {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.time-chip-remove {
+  padding: 0 0.25rem;
+  background-color: transparent;
+  color: #6b7280;
+  border: none;
+  cursor: pointer;
+}
+
+/* Controla el ancho total del TimePicker */
+.timepicker-compact {
+  width: 250px;            /* prueba 150px; si quieres más pequeño, baja de a 10px */
+  align-items: center;
+}
+
+/* Wrapper interno: que use todo el ancho y parezca un input normal */
+.timepicker-compact .react-time-picker__wrapper {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 1rem 0.5rem;
+  height: 60px;
+}
+
+/* Evitar que AM/PM se vaya a otra línea o se esconda */
+.timepicker-compact .react-time-picker__inputGroup {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Que la parte del AM/PM no se contraiga ni desaparezca */
+.timepicker-compact .react-time-picker__inputGroup__amPm {
+  flex: 0 1 auto;
+  width: 50px;
+}
+
+/* Modificar ancho de HH:MM */
+.timepicker-compact .react-time-picker__inputGroup__hour,
+.timepicker-compact .react-time-picker__inputGroup__minute {
+  flex: 1 0 auto;
+  
+}
+
+

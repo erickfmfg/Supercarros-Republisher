@@ -27,6 +27,11 @@ def create_app() -> FastAPI:
     app.include_router(users.router, prefix="/api/users", tags=["users"])
     app.include_router(manual.router, prefix="/api/manual", tags=["manual"])
 
+    # ✅ Health check para EB / Load Balancer
+    @app.get("/health", include_in_schema=False)
+    async def health():
+        return {"status": "ok", "app": settings.APP_NAME}
+
     @app.on_event("startup")
     async def on_startup():
         init_db()

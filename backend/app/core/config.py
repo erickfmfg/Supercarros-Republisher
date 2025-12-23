@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    APP_NAME: str = "SuperCarros Republishing Scheduler"
+    APP_NAME: str = "SCR Scheduler"
     API_V1_STR: str = "/api"
 
     # Si existe SQLALCHEMY_DATABASE_URI en env, úsalo.
